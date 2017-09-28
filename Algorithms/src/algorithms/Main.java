@@ -1,5 +1,5 @@
 /* 
- * This file is part of an Algorithms test library
+ * This file is part of an Algorithums test library
  * Brian Denlinger
  * brian.denlinger1@gmail.com
  * 
@@ -24,7 +24,9 @@ import java.util.List;
 public class Main {
 
 	public static void main(String[] args) {
+		Bogosort<String> bogosort = new Bogosort<String>();
 		List<String> input = new ArrayList<String>();
+		List<String> output = new ArrayList<String>();
 		input.add("Evan");
 		input.add("Brian");
 		input.add("Eric");
@@ -34,20 +36,17 @@ public class Main {
 		input.add("Cindy");
 		input.add("Jesse");
 		input.add("Liesel");
-		input.add("Britney");
-		
-		Bogosort<String> bogosort = new Bogosort<String>();
+		input.add("Britney");	
 		
 		long startTime = System.nanoTime();
-		printList(bogosort.sort(input));
+		output = bogosort.sort(input);
 		long endTime = System.nanoTime();
 		long duration = (endTime - startTime);
 		System.out.println("Execution took " + duration/1000000 + " milliseconds.");
-		
+		printList(output);		
 	}
 	
 	private static <T> void printList(List<T> ltp) {
 		ltp.forEach((k)->System.out.println(k));
 	}
-
 }
