@@ -18,11 +18,36 @@
 
 package algorithms;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Main {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
+		List<String> input = new ArrayList<String>();
+		input.add("Evan");
+		input.add("Brian");
+		input.add("Eric");
+		input.add("Shannon");
+		input.add("LeeAnn");
+		input.add("Rick");
+		input.add("Cindy");
+		input.add("Jesse");
+		input.add("Liesel");
+		input.add("Britney");
+		
+		Bogosort<String> bogosort = new Bogosort<String>();
+		
+		long startTime = System.nanoTime();
+		printList(bogosort.sort(input));
+		long endTime = System.nanoTime();
+		long duration = (endTime - startTime);
+		System.out.println("Execution took " + duration/1000000 + " milliseconds.");
+		
+	}
+	
+	private static <T> void printList(List<T> ltp) {
+		ltp.forEach((k)->System.out.println(k));
 	}
 
 }
