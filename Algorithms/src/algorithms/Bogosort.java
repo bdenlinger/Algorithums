@@ -10,14 +10,16 @@ import java.util.Random;
 public class Bogosort<T> {
 	
 	public List<T> sort(List<T> input) {
-		if(input.size() == 0) {
+		//Return if empty List passed
+		if(input.isEmpty()) {
 			return input;
 		}
 		
 		Random n = new Random();
 		
-		int count = 0;
+		int count = 0;//Count number of iterations to sort
 		
+		//Check if sorted, and attempt sort if false.
 		while(!this.isSorted(input)) {
 			for(int i = input.size()-1; i > 0; i--) {
 				int num = n.nextInt(input.size()-1);
@@ -26,10 +28,8 @@ public class Bogosort<T> {
 				input.add(num, s);
 			}
 			count++;
-		}
-		
-		System.out.println(count + " Iteratons later...");
-		
+		}		
+		System.out.println(count + " Iteratons later...");		
 		return input;		
 	}
 	
