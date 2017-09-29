@@ -25,6 +25,7 @@ public class Main {
 
 	public static void main(String[] args) {
 		Bogosort<String> bogosort = new Bogosort<String>();
+		Bubblesort<String> bubblesort = new Bubblesort<String>();
 		List<String> input = new ArrayList<String>();
 		List<String> output = new ArrayList<String>();
 		input.add("Evan");
@@ -43,7 +44,14 @@ public class Main {
 		long endTime = System.nanoTime();
 		long duration = (endTime - startTime);
 		System.out.println("Execution took " + duration/1000000 + " milliseconds.");
-		printList(output);		
+		printList(output);
+		
+		startTime = System.nanoTime();
+		output = bubblesort.sort(input);
+		endTime = System.nanoTime();
+		duration = (endTime - startTime);
+		System.out.println("Execution took " + duration + " nanoseconds.");
+		printList(output);
 	}
 	
 	private static <T> void printList(List<T> ltp) {

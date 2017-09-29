@@ -18,6 +18,32 @@
 
 package algorithms;
 
-public class Bubblesort {
+import java.util.List;
+
+public class Bubblesort<T> {
+	
+	@SuppressWarnings("unchecked")
+	public List<T> sort(List<T> input) {
+		if(input.isEmpty()) {
+			return input;
+		}
+		boolean isSorted;
+		do {
+			isSorted = true;
+			for(int i = 0; i < input.size()-1; i++) {
+				String left = input.get(i).toString();
+				String right = input.get(i+1).toString();
+				if(left.compareTo(right) > -1) {
+					input.set(i, (T) right);
+					input.set(i+1, (T) left);
+					isSorted = false;
+				}		
+			}
+			
+		}while(!isSorted);
+		
+		return input;
+	}
+	
 
 }
